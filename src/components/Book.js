@@ -11,7 +11,7 @@ export default class Book extends Component {
         const result = await update(book, shelf);
         this.props.movebook(book, shelf)
 
-          console.log(result)
+        console.log(result)
       } catch(error) {
           console.log(error)
       }
@@ -28,11 +28,12 @@ export default class Book extends Component {
              <div className="book-cover" 
              style=
              {{ width: 128, height: 193, 
-             backgroundImage: `url(${this.props.imageLinks.thumbnail})` 
+             backgroundImage: `url(${
+              this.props.imageLinks ? this.props.imageLinks.thumbnail : ""})` 
              }}>
              </div>
                     <div className="book-shelf-changer">
-                       <select onChange={this.handleChange} >
+                       <select onChange={this.handleChange}  value={this.props.shelf} >
                           <option value="move" disabled>Move to...</option>
                           <option value="currentlyReading">Currently Reading</option>
                           <option value="wantToRead">Want to Read</option>
@@ -42,7 +43,7 @@ export default class Book extends Component {
                     </div>
                 </div>
                 <div className="book-title">{this.props.title}</div>
-                <div className="book-authors">{this.props.authors}</div>
+                <div className="book-authors">{this.props.authors ? this.props.authors : "Author's Name Not Available"}</div>
              </div>
           </li>
       </div>

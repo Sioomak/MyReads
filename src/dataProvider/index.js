@@ -24,10 +24,20 @@ super();
       
     },
 
-    moveBook: (book, shelf) => {
+    moveBook: (book, newShelf, allShelves) => {
+      console.log(newShelf)
+      const newBooks = this.state.books.map(allBooks => {
+        const foundID = allShelves[newShelf].find(
+          bookID => bookID === allBooks.id
+        );
+        if (foundID) {
+          allBooks.shelf = newShelf;
+        }
+        return allBooks;
+      });
 
-      console.log(book,shelf)
-
+      this.state.addBooks(newBooks)
+      
     }
   };
 }

@@ -33,7 +33,7 @@ export default class Home extends Component {
               <Shelf title="Already Read" books={this.props.read} moveBook={this.props.moveBook} /> 
             </div>
               <Fab/>
-          </div>
+            </div>
       </div>
     )
   }
