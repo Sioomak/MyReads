@@ -29,10 +29,12 @@ export default class Home extends Component {
             </div>
             <div className="list-books-content">
               <Shelf title="Currently Reading"  books={this.props.currentlyReading} moveBook={this.props.moveBook} />
-              <Shelf title="Want to Read Next" books={this.props.wantToRead} moveBook={this.props.moveBook} /> moveBook={this.props.moveBook}
+              <Shelf title="Want to Read Next" books={this.props.wantToRead} moveBook={this.props.moveBook} /> 
               <Shelf title="Already Read" books={this.props.read} moveBook={this.props.moveBook} /> 
-            </div>
-              <Fab/>
+            </div >
+
+              <Fab />
+              
             </div>
       </div>
     )

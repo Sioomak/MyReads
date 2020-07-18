@@ -7,14 +7,16 @@ export default class Fab extends Component {
   render() {
 
     return ( 
-    
-    <div className="open-search">
-      <Link to={"/search"}>Add a Book</Link>
-    </div>
-    );
-  }
-}
+            <div>
+              <Link
+              className="open-search" 
+              to={"/search"}
+              >Add a book
+              </Link>
+            </div>
+            );
+          }
+        }
 
 
 
-//<button onClick={() => this.setState({ showSearchPage: true })}>Add a book</button>

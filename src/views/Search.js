@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
 import {search} from '../BooksAPI'
 import Book from '../components/Book'
+import { getAll } from '../BooksAPI'
 
 
 export default class Search extends Component {
@@ -12,6 +13,18 @@ export default class Search extends Component {
       query: "",
       books:[]
     };
+  }
+
+  async componentDidMount() {
+    try {
+      const books = await getAll();
+
+      this.props.addBooks(books)
+
+    } catch( error ) {
+      console.log(error)
+
+    }
   }
 
   handleChange = async e => {
@@ -60,8 +73,28 @@ export default class Search extends Component {
       <div className="search-books-results">
         <ol className="books-grid">
 
-        {this.state.books.length > 0 && this.state.books.map(book => <Book key={book.id} {...book} moveBook={this.props.moveBook} />)}
+        {this.state.books.length > 0 && 
+          this.state.books.map(book => {
 
+            const foundShelf = this.props.books.find(
+              searchBook => searchBook.id === book.id
+            );
+            if (foundShelf) {
+              book.shelf = foundShelf.shelf;
+            } else {
+              book.shelf = "None";
+            } 
+            return  (
+              <Book 
+              key={book.id} 
+              {...book} 
+              moveBook={this.props.moveBook} 
+            />
+          );
+        })}
+            {this.state.books.length === 0 && (
+            <h2 style={{ textAlign: "center" }}>No Result Found</h2>
+            )}
         </ol>
       </div>
     </div>

@@ -9,9 +9,8 @@ export default class Book extends Component {
         const shelf = e.target.value;
         const book = this.props;
         const result = await update(book, shelf);
-        this.props.movebook(book, shelf)
+        this.props.movebook(book, shelf, result)
 
-        console.log(result)
       } catch(error) {
           console.log(error)
       }
@@ -33,7 +32,8 @@ export default class Book extends Component {
              }}>
              </div>
                     <div className="book-shelf-changer">
-                       <select onChange={this.handleChange}  value={this.props.shelf} >
+                       <select onChange={this.handleChange}  
+                               value={this.props.shelf} >
                           <option value="move" disabled>Move to...</option>
                           <option value="currentlyReading">Currently Reading</option>
                           <option value="wantToRead">Want to Read</option>
