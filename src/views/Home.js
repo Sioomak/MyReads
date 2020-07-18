@@ -9,7 +9,7 @@ export default class Home extends Component {
   async componentDidMount() {
     try {
       const books = await getAll();
-      
+
       this.props.addBooks(books)
 
     } catch( error ) {
@@ -28,9 +28,9 @@ export default class Home extends Component {
               <h1>MyReads</h1>
             </div>
             <div className="list-books-content">
-              <Shelf title="Currently Reading"/>
-              <Shelf title="Want to Read Next"/>
-              <Shelf title="Already Read"/> 
+              <Shelf title="Currently Reading"  books={this.props.currentlyReading} />
+              <Shelf title="Want to Read Next" books={this.props.wantToRead} />
+              <Shelf title="Already Read" books={this.props.read} /> 
             </div>
               <Fab/>
           </div>
