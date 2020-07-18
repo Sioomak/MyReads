@@ -9,7 +9,7 @@ constructor() {
 super();
   this.state = {
     books: [], 
-    currentReading: [],
+    currentlyReading: [],
     wantToRead: [],
     AlreadyRead: [],
     addBooks: books => {
@@ -21,8 +21,14 @@ super();
       const wantToRead = books.filter(book => book.shelf === "wantToRead");
 
       this.setState({books, currentlyReading, read, wantToRead});
-    }
+      
+    },
 
+    moveBook: (book, shelf) => {
+
+      console.log(book,shelf)
+
+    }
   };
 }
 
