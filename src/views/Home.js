@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Shelf from '../components/Shelf'
-import Fab from '../components/Fab'
+import Add from '../components/Add'
 import { getAll } from '../BooksAPI'
 
 
@@ -33,7 +33,7 @@ export default class Home extends Component {
               <Shelf title="Already Read" books={this.props.read} moveBook={this.props.moveBook} /> 
             </div >
 
-              <Fab />
+              <Add />
               
             </div>
       </div>
