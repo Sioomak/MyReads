@@ -1,11 +1,11 @@
 # MyReads Project
 
 This is a simple book management app written in React. User can search for books and add them to one of the three shelves below.
-User can also move the books from one shelf to another. 
+User can also move the books from one shelf to another:
 
-want to read
-currently reading
-read
+Want to Read
+Currently Reading
+Read
 
 
 
