@@ -8,8 +8,7 @@ export default class Add extends Component {
 
     return ( 
             <div>
-              <Link
-              className="open-search" 
+              <Link className="open-search" 
               to={"/search"}
               >Add a book
               </Link>
